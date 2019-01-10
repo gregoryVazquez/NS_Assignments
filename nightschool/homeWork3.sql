@@ -1,0 +1,28 @@
+--1--
+SELECT Make, MAX(MPG_City) AS MAX_MPG
+FROM Cars
+GROUP BY Make
+ORDER BY MAX_MPG DESC;
+
+--2--
+SELECT Origin, AVG(Invoice) AS INNY
+FROM Cars
+WHERE Type='Sedan'
+GROUP BY Origin
+ORDER BY INNY DESC;
+
+--3--
+SELECT Make, SUM(Weight) FATTY
+FROM Cars
+GROUP BY Make
+HAVING SUM(Weight) > 50000
+ORDER BY FATTY ASC;
+
+--4--
+SELECT Type, Origin, COUNT(Origin) AS CTTY
+FROM Cars
+WHERE (EngineSize > 3 OR MPG_City >= 26)  
+GROUP BY Origin, Type
+HAVING COUNT(EngineSize) > 5 
+AND COUNT(Origin) BETWEEN 8 AND 20
+ORDER BY COUNT(*) DESC;
